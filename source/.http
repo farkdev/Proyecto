@@ -1,0 +1,75 @@
+GET http://localhost:8080/api/products/
+
+//PRODUCTO POR ID
+###
+GET http://localhost:8080/api/products/644ef882e9ac23b6dca65093
+
+
+### POST
+POST http://localhost:8080/api/products/
+Content-Type: application/json
+
+{
+    "title": "Remera Babolat",
+    "description": "Color Azul, Talle M",
+    "thumbnail": "",
+    "price": 3500,
+    "stock": 22,
+    "code": "984",
+    "category": "Indumentaria" 
+}
+
+
+
+###
+PUT http://localhost:8080/api/products/644ef882e9ac23b6dca65093
+Content-Type: application/json
+
+{
+    "title": "Medias Adidas",
+    "description": "Pack X3, negras",
+    "thumbnail": "",
+    "price": 1500,
+    "stock": 20,
+    "code": "142"
+}
+
+
+###
+DELETE http://localhost:8080/api/products/645ebf4a084caa77e6912f72
+
+
+//CARRITOS!!!
+
+
+
+###
+//CREA CARRITO
+POST  http://localhost:8080/api/carts/cart
+
+
+
+//BUSCAR CARRITOS
+###
+GET http://localhost:8080/api/carts/
+
+//CARGA PRODUCTO EN EL CARRITO
+###
+POST http://localhost:8080/api/carts/64a1ea3b2f0b22f030ec8ee4/product/645eaf38968986e5d0689a8a
+
+
+
+//CART POR ID
+###
+GET http://localhost:8080/api/carts/64a1ea3b2f0b22f030ec8ee4
+
+
+
+//Eliminar CARRITO
+###
+DELETE http://localhost:8080/api/carts/649b4c1cf5cb229d2abb9932
+
+
+//EMITE TICKET COMPRA 
+###
+POST http://localhost:8080/api/carts/64a1ea3b2f0b22f030ec8ee4/purchase

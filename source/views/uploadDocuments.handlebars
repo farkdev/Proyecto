@@ -1,0 +1,22 @@
+
+<section class="d-flex justify-content-center align-items-center h-100" style="background-color: #ffff">
+
+    <div class="w-auto h-auto bg-light d-flex flex-column align-items-center justify-content-between rounded border border-secondary">
+        <h1 class="my-4 ">upload documents</h1>
+        <form class='d-flex flex-column' action="/api/session/documents" method="POST" enctype="multipart/form-data">
+            <label for="uploadType">Tipo de carga:</label>
+            <select name="uploadType">
+                <option value="profile">Imagen de perfil</option>
+                <option value="product">Imagen de producto</option>
+                <option value="document">Documento</option>
+            </select>
+
+            <label for="uploads">Archivo:</label>
+            <input type="file" name="uploads" accept="image/*, application/pdf" multiple>
+
+            <button type="submit">Subir</button>
+        </form>
+         
+    </div>
+    
+</section>

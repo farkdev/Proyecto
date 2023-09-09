@@ -1,0 +1,276 @@
+paths: 
+  /api/carts/:
+    get:
+      summary: Obtiene los carritos
+      tags: 
+        - Carritos
+      responses:
+        "200":
+          description: Los carritos fueron obtenidos correctamente
+        "500":
+          description: Error interno del server, usualmente generado por una query defectuosa
+    post:
+      summary: Crea un nuevo carrito
+      tags: 
+        - Carritos
+      responses:
+        "201":
+          description: Carrito creado correctamente
+          content:
+            application/json:
+              schema: 
+                $ref: '#components/schemas/Cart'
+              example:
+                _id: '647e4a4da285b6546c75e632'
+                products: []
+        "500":
+          description: Error interno del server, usualmente generado por una query defectuosa
+
+  /api/carts/{cid}:
+    get:
+      summary: Obtiene un carrito por su cid
+      tags:
+      - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito a solicitar.
+        schema:
+          type: string  
+      responses:
+        "200":
+          description: El carrito obtenido correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Cart'
+              example:
+                _id: "645efaecef447196b4b7607f"
+                products:
+                  - product: 
+                      _id: "645ebf3c084caa77e6912f70"
+                      title: "producto de prueba 2"
+                      description: "prueba 2"
+                      price: 1023
+                      code: "102"
+                      stock: 16
+                      category: "prueba 2"
+                      owner: "admin"
+                      thumbnail: 
+                        - "ruta de imagen 2"
+                    cantidad: 12
+                  - product: 
+                      _id: "645ebf72084caa77e6912f74"
+                      title: "producto de prueba 13"
+                      description: "prueba 13"
+                      price: 1003
+                      code: "113"
+                      stock: 342
+                      category: "prueba 13"
+                      owner: "admin"
+                      thumbnail: 
+                        - "ruta de imagen 13"
+                    cantidad: 1  
+        "404":
+          description: El carrito no encontrado
+    put:
+      summary: Se actualiza el carrito en base a su cid
+      tags:
+        - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito a modificar.
+        schema:
+          type: string 
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/products'
+      responses:
+        "200":
+          description: El carrito ha sido modificado
+        "400":
+          description: El carrito no pudo modificarse
+    delete:
+      summary: Se vacia el carrito completamente segun su cid
+      tags:
+        - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito a vaciar.
+        schema:
+          type: string 
+      responses:
+        "200":
+          description: Carrito vaciado completamente
+          content:
+            application/json:
+              schema: 
+                $ref: '#components/schemas/Cart'
+              example:
+                _id: '645efaecef447196b4b7607f'
+                products: []
+        "400":
+          description: El carrito no pudo vaciarse
+
+  /api/carts/{cid}/products/{pid}:
+    delete:
+      summary: Se elimina producto del carrito
+      tags:
+          - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito donde se encuentra el producto
+        schema:
+          type: string 
+      - name: pid
+        in: path
+        required: true
+        description: El id del producto dentro del carrito
+        schema:
+          type: string 
+      responses:
+        "200":
+          description: El producto se ha eliminado del carrito
+        "400":
+          description: El producto no pudo eliminarse
+    put:
+      summary: Se modifica un producto dentro del carrito
+      tags:
+          - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito donde se encuentra el producto
+        schema:
+          type: string 
+      - name: pid
+        in: path
+        required: true
+        description: El id del producto dentro del carrito
+        schema:
+          type: string 
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+                $ref: '#components/requestBodies/cantidad'
+      responses:
+        "200":
+          description: El producto se ha actualizado correctamente
+        "400":
+          description: El producto no pudo actualizarse
+    post:
+      summary: Agregar un producto al carrito
+      tags:
+          - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito donde se encuentra el producto
+        schema:
+          type: string 
+      - name: pid
+        in: path
+        required: true
+        description: El id del producto para agregar al carrito
+        schema:
+          type: string 
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+                $ref: '#components/requestBodies/cantidad'
+      responses:
+        "200":
+          description: El producto se ha agregado correctamente
+        "400":
+          description: El producto no se pudo agregar
+        "401":
+          description: Sin autorizacion para realizar esta accion
+  /api/carts/{cid}/purchase:
+    post:
+      summary: Generar el ticket con la orden de compra
+      tags:
+          - Carritos
+      parameters:
+      - name: cid
+        in: path
+        required: true
+        description: El id del carrito
+        schema:
+          type: string
+      responses:
+        "201":
+          description: El ticket se genero correctamente
+        "400":
+          description: El ticket no se pudo generar
+
+
+components:
+  schemas: 
+    Cart: 
+      type: object
+      properties: 
+        _id:
+          type: ObjectId
+          description: Id autogenerado por Mongo.
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: ObjectId
+                description: Id del producto.
+              cantidad:
+                type: number
+                description: Cantidad del producto seleccionado
+      example:
+        _id: ObjectId('646286f80b3d225b3483875a')
+        products:
+          - product: ObjectId('645ebf1c084caa77e6912f6c')
+            cantidad: 1
+          - product: ObjectId('645ebf11084caa77e6912f6a')
+            cantidad: 1
+          - product: ObjectId('645ebf08084caa77e6912f68')
+            cantidad: 18
+
+  requestBodies: 
+    products:
+      type: array
+      items:
+        type: object
+        properties:
+          product:
+            type: ObjectId
+            description: Id del producto.
+          cantidad:
+            type: number
+            description: Cantidad del producto seleccionado              
+      example:
+          - product: '645ebf08084caa77e6912f68'
+            cantidad: 1
+          - product: '645ebf11084caa77e6912f6a'
+            cantidad: 1
+    cantidad:
+      type: object
+      properties:
+        cantidad:
+          type: number
+          description: cantidad del producto seleccionado
+      example:
+        cantidad: 5      

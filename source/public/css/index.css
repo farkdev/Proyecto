@@ -1,0 +1,127 @@
+h1{
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+body{
+    background-color: rgba(0, 255, 115, 0.411);
+}
+p{
+    color: black;
+}
+
+  /* styles.css */
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product-details h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-description {
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Paginación */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  color: #333;
+  text-decoration: none;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.current-page {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+
+
+  /* Estilos para la caja de chat y los mensajes */
+  .chat-container {
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: auto;
+  }
+  .chat-box {
+    padding: 10px;
+  }
+  .chat-message {
+    margin-bottom: 10px;
+  }
+  .username {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .timestamp {
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+  }

@@ -1,0 +1,31 @@
+{{!-- <form>
+  <label for="name">Nombre del cliente:</label>
+  <input type="text" id="name" name="name"><br><br>
+  <label for="email">Correo electrónico:</label>
+  <input type="text" id="email" name="email"><br><br>
+  <button id="getCookie">Obtener cookie</button>
+</form>
+
+<script id="cookie-template" type="text/x-handlebars-template">
+  {{cookie}}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script>
+  const getCookieButton = document.getElementById('getCookie');
+  const cookieTemplate = Handlebars.compile(document.getElementById('cookie-template').innerHTML);
+  getCookieButton.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const response = await fetch(`/cookie?name=${name}&email=${email}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    const cookieHtml = cookieTemplate(data);
+    console.log(cookieHtml);
+  });
+</script> --}}

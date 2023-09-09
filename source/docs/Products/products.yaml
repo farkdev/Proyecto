@@ -1,0 +1,210 @@
+paths: 
+  /api/products/:
+    get:
+      summary: Obtiene todos los productos
+      tags: 
+        - Productos
+      responses:
+        "200":
+          description: Los productos fueron obtenidos correctamente
+        "500":
+          description: Error interno del server, usualmente generado por una query defectuosa
+    post:
+      summary: Crea un nuevo producto
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/createProduct'
+      responses:
+        "201":
+          description: El producto fue creado correctamente
+        "400":
+          description: El producto no pudo ser creado, Bad Request
+        "401":
+          description: Sin autorizacion para realizar esta accion
+
+  /api/products/{pid}:
+    get:
+      summary: Obtiene un producto por su pid
+      tags: 
+        - Productos
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: El id del producto a solicitar.
+        schema:
+          $type: String  
+      responses:
+        "200":
+          description: El producto fue obtenido correctamente
+          content:
+            application/json:
+              schema: 
+                $ref: '#components/schemas/Product'
+        "404":
+          description: El producto no ha sido encontrado
+    put:
+      summary: Se actualiza un producto en base un pid
+      tags:
+        - Productos
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: El id del producto a modificar
+        schema: 
+          type: string
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/createProduct'
+      responses:
+        "200":
+          description: El producto ha sido modificado con exito
+        "400":
+          description: El producto no pudo modificarse
+        "401":
+          description: Sin autorizacion para realizar esta accion 
+    delete:
+      summary: Se elimina un producto con base en su pid
+      tags:
+        - Productos
+      parameters:
+      - name: pid
+        in: path
+        required: true
+        description: El id del producto a eliminar
+        schema: 
+          type: string
+      responses:
+        "200":
+          description: El producto ha sido eliminado con exito
+        "404":
+          description: El producto no ha sido encontrado
+        "403":
+          description: No autorizado  
+
+  /api/products/mockingProducts:
+    get:
+      summary: Obtiene un mock de 50 productos
+      tags: 
+        - Productos
+      responses:
+        "200":
+          description: Productos generados correctamente
+        "500":
+          description: Error interno del server, usualmente generado por una query defectuosa
+    
+components:
+  schemas: 
+    Product: 
+      type: object
+      properties: 
+        _id:
+          type: ObjectId
+          description: Id autogenerado por Mongo.
+        title:
+          type: string
+          description: El titulo del producto
+          required: true
+        description:
+          type: string
+          description: La descripcion del producto
+          required: true
+        price:
+          type: number
+          description: El precio del producto
+          required: true
+        code:
+          type: string
+          description: El codigo del producto el cual debe ser unico
+          unique: true
+          required: true
+        stock:
+          type: number
+          description: El stock existente del producto
+          required: true
+        category:
+          type: string
+          description: La categoria en donde se encuentra
+          required: true
+        owner:
+          type: string
+          description: El propietario de dicho producto
+          required: true
+        thumbnail:
+          type: array
+          items:
+            type: string
+            description: Links de imagenes del producto
+      example:
+        _id: '645ebf72084caa77e6912f74'
+        title: producto de prueba 1
+        description: prueba 1
+        price: 1200
+        code: "101"
+        stock: 232
+        category: prueba 1
+        owner: premium@premium.com
+        thumbnail: 
+          - "ruta de imagen 1"
+          - "ruta de imagen 2"
+          - "ruta de imagen 3"
+
+  requestBodies: 
+    createProduct:
+      type: object
+      properties:
+        title:
+          type: string
+          description: El titulo del producto
+          required: true
+        description:
+          type: string
+          description: La descripcion del producto
+          required: true
+        price:
+          type: number
+          description: El precio del producto
+          required: true
+        code:
+          type: string
+          description: El codigo del producto el cual debe ser unico
+          unique: true
+          required: true
+        stock:
+          type: number
+          description: El stock existente del producto
+          required: true
+        category:
+          type: string
+          description: La categoria en donde se encuentra
+          required: true
+        owner:
+          type: string
+          description: El propietario de dicho producto
+          required: true
+        thumbnail:
+          type: array
+          items:
+            type: string
+            description: Links de imagenes del producto
+      example:
+        title: producto de prueba 1
+        description: prueba 1
+        price: 1200
+        code: "101"
+        stock: 232
+        category: prueba 1
+        owner: premium@premium.com
+        thumbnail: 
+          - "ruta de imagen 1"
+          - "ruta de imagen 2"
+          - "ruta de imagen 3"

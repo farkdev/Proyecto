@@ -1,0 +1,87 @@
+<div class="pt-5 m-auto d-flex flex-column align-items-center justify-content-around">
+{{#if products.length}}
+  <div class="d-flex align-items-center justify-content-center">
+    <h1 class="m-5" style="color: #ff6600;">Carrito</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row align-items-start pb-5 m-4">
+      <div class="w-100 d-grid gap-2 d-flex justify-content-start px-5 mb-5">
+
+        <a href="/">
+          <button class="btn btn-warning text-white">Volver</button>
+        </a>
+        <button class="btn btn-warning text-white" onclick="clearCart('{{user.cart}}')">Vaciar carrito</button>
+      </div>
+
+      <div class="col-12 col-sm-8">
+        {{#each products}}
+        <div class="px-5 row align-items-start">
+          <div class="col-3 mb-2">
+            <img class="w-100" src="{{this.product.thumbnail}}" alt="{{this.product.title}}" />
+          </div>
+          <div class="col-5 mb-2">
+            <p class="h6">{{this.product.title}}</p>
+            <p class="pl-1 mb-0">category: {{this.product.category}}</p>
+            <p class="pl-1 mb-0">$ {{this.product.price}}</p>
+            <p class="pl-1 mb-0">stock: {{this.product.stock}}</p>
+          </div>
+          <div class="col-4 d-flex flex-column align-items-end">
+            <p class="h5 ">${{this.totalProducto}}</p>
+            <p class="p-1 h5">Unidades: {{this.cantidad}}</p>
+            <button onclick="deleteFromCart('{{../user.cart}}', '{{this.product._id}}')" class="btn btn-danger">eliminar</button>
+          </div>
+          <hr />
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="col-12 col-sm-4 p-3 bg-light">
+
+        <div class="row m-0">
+          <div class="col-sm-8 p-0">
+            <h6>Subtotal</h6>
+          </div>
+          <div class="col-sm-4 p-0">
+            <p class="h6">${{subTotalPrice}}</p>
+          </div>
+        </div>
+
+        <div class="row m-0">
+          <div class="col-sm-8 p-0 ">
+            <h6>IVA 21%</h6>
+          </div>
+          <div class="col-sm-4 p-0">
+            <p class="h6">${{iva}}</p>
+          </div>
+        </div>
+        <hr />
+
+        <div class="row mx-0 mb-2">
+          <div class="col-sm-8 p-0 d-inline">
+            <h5>Total</h5>
+          </div>
+          <div class="col-sm-4 p-0">
+            <p class="h5">${{totalPrice}}</p>
+          </div>
+        </div>
+        <button class="btn btn-success w-100" onclick="generateTicket('{{user.cart}}')">Finalizar Compra</button>
+
+      </div>
+
+    </div>
+  </div>
+  
+  {{else}}
+      <div class='d-flex justify-content-center flex-column align-items-center'>
+        <img class='img-fluid w-25 h-25' src="https://res.cloudinary.com/dmzrvnlgb/image/upload/v1675527405/Group_1_nriq2z.png" alt="carritovacio" />
+        <h2> Tu carrito esta vacio!</h2>
+        <a href="/">
+          <button class='btn btn-warning text-dark'>Volver a comprar</button>
+        </a>
+      </div>
+  {{/if}}
+
+</div>
+
+<script src="/static/js/endPurchase.js"></script>

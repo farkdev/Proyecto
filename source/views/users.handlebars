@@ -1,0 +1,41 @@
+{{#if user.isAdmin}}
+    <h1>{{user.name}} es administrador</h1>
+    {{#each datos}}
+     <ul>
+        <li>
+            id: {{this.id}}
+        </li>
+        <li>
+            name: {{this.name}}
+        </li>
+        <li>
+            last_name: {{this.last_name}}
+        </li>
+        <li>
+            direction: {{this.direction}}
+        </li>
+    </ul>
+   {{/each}}
+{{else}}
+  <h1>{{user.name}} Es usuario</h1>
+{{/if}}
+
+<div>
+    {{#each users}}
+        <li>
+            <strong>Nombre: </strong>{{this.first_name}} - 
+            <strong>Apellido:  </strong>{{this.last_name}} - 
+            <strong>Eamil: </strong>{{this.email}}
+        </li>
+    {{/each}}
+
+    <center>
+        {{#if hasPrevPage}}
+            <a href="/api/usuarios?page={{prevPage}}"><button>anterior</button></a>
+        {{/if}}
+
+        {{#if hasNextPage}}
+            <a href="/api/usuarios?page={{nextPage}}"><button>Siguiente</button></a>
+        {{/if}}
+    </center>
+</div>

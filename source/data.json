@@ -1,0 +1,236 @@
+[
+  {
+    "titulo": "Pelota de tenis",
+    "descripcion": "Pelota profesional de tenis, 3 unidades",
+    "precio": 300,
+    "thumbnail": "sin ruta",
+    "code": 936,
+    "stock": 35,
+    "id": 1
+  },
+  {
+    "titulo": "Raqueta Wilson",
+    "descripcion": "Raqueta Wilson N Code 95",
+    "precio": 47000,
+    "thumbnail": "sin ruta",
+    "code": 134,
+    "stock": 10,
+    "id": 2
+  },
+  {
+    "titulo": "Pelota de tenis",
+    "descripcion": "Pelota profesional de tenis, 3 unidades",
+    "precio": 1900,
+    "thumbnail": "sin ruta",
+    "code": 936,
+    "stock": 35,
+    "id": 4
+  },
+  {
+    "titulo": "Bolso Head",
+    "descripcion": "Bolso Raquetero x3",
+    "precio": 24000,
+    "thumbnail": "sin ruta",
+    "code": 422,
+    "stock": 10,
+    "id": 5
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 6
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 7
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 8
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 9
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 10
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 11
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 12
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 13
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 14
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 15
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 16
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 17
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 18
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 19
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 20
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 21
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 22
+  },
+  {
+    "titulo": {
+      "title": "productoSuperTest",
+      "description": "producto de prueba Supertest",
+      "price": 123,
+      "code": "p123",
+      "stock": 123,
+      "category": "producto de prueba Supertest"
+    },
+    "id": 23
+  }
+]
